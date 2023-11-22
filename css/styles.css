@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech&display=swap');
 
-body {
+/* -------------- Global Styles --------------- */
+.g-base {
     background-color: #FFFFFF;
     color: #3d5170;
     font-family: Arial, Helvetica, sans-serif;
@@ -12,13 +13,13 @@ body {
     align-items:center;
 }
 
-.heading {
+.g-heading {
     font-family: "share tech";
     font-size: 40px;
     font-weight:bold;
 }
 
-.sub-heading {
+.g-sub-heading {
     font-size: 16px;
     letter-spacing: 8px;
     font-weight: 600;
@@ -53,64 +54,75 @@ footer p {
     font-weight: bold;
 }
 
-aside {
-    max-width: 800px;
-    padding-top:10px;
-	padding-bottom:10px;
-    border-top: dotted 2px #3d5170;
-	margin-top:10px;
+
+/* ------------ Page & Section Styles ------------ */
+#p-home {
+    & aside {
+        max-width: 800px;
+        padding-top:10px;
+        padding-bottom:10px;
+        border-top: dotted 2px #3d5170;
+        margin-top:10px;
+    }
+
+    & #s-thumbnails {
+        max-width: 880px;
+        padding-top:20px;
+        display:flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    & #s-thumbnails img {
+        border-radius: 5px;
+        width: 200px;
+        height: 298px;
+    }
 }
 
-#thumbnails {
-    max-width: 880px;
-    padding-top:20px;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
 
-img {
-    border-radius: 5px;
-    width: 200px;
-    height: 298px;
-}
+#p-thumbnail {
+    & #s-navigation {
+        padding-bottom:20px;
+        display:flex;
+    }
 
-nav {
-    padding-bottom:20px;
-    display:flex;
-}
+    & #s-navigation {
+        & i {
+            padding-right:8px;
+        }
 
-i {
-    padding-right:8px;
-}
+        & .nav-link {
+            padding-right:20px;
+            font-weight:bold;
+        
+            &:nth-of-type(3) {
+                padding-left:20px;
+                border-left: 2px dotted #6f7276;
+            }
+        }
+    }
 
-.nav-link {
-    padding-right:20px;
-    font-weight:bold;
-}
-
-.nav-link:nth-of-type(3) {
-    padding-left:20px;
-    border-left: 2px dotted #6f7276;
-}
-
-.full-image {
-    border-radius: 10px;
-    width:469px;
-    height:700px;
+    & #s-poster .full-image {
+        border-radius: 10px;
+        width:469px;
+        height:700px;
+    }
+    
 }
 
 @media (max-width: 500px) {
-    #thumbnails {
+    #p-home #s-thumbnails {
         flex-direction: column;
         align-items: center;
+
+        & figure {
+            padding-right: 0px;
+        
+        }
     }
 
-    figure {
-        padding-right: 0px;
-    
-    }
-    .full-image {
+    #p-thumbnail #s-poster .full-image {
         width:300px;
         height: 450px;
     }
